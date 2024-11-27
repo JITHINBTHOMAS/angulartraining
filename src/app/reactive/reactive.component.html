@@ -1,0 +1,24 @@
+<p>reactive works!</p>
+<!-- Form-group  tracks the value and validate 
+Form-control -->
+
+<div class="container">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <label for="productId">ProductId: </label>
+        <input type="text" formControlName = "productId"/>
+
+        <label for="brand">Brand</label>
+        <input type="text" formControlName = "brand"/>
+
+        <label for="desc">Description</label>
+        <input type="text" formControlName = "description"/>
+
+        <label for="qty">Quantity</label>
+        <input type="text" formControlName = "qty"/>
+
+        <label for="price">Price</label>
+        <input type="text" formControlName = "price"/>
+
+        <button type="submit" [disabled]="!productForm.valid">Submit</button>
+    </form>
+</div>

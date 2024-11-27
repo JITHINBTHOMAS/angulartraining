@@ -1,0 +1,62 @@
+<div class="container card" >
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <table class="table">
+            <tr>
+                <td>
+                    <label for="">ProductId:&nbsp;
+                        <input type="text" formControlName="productId" />
+                    </label>
+                </td>
+                <td>
+                    <label for="">Brand:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" formControlName="brand" />
+                    </label>
+                </td>
+            </tr>
+
+
+            <tr formGroupName="description">
+                <td>
+                    <label for="">Age:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" formControlName="age">
+                    </label>
+                </td>
+                <td>
+                    <label for="">Seasons:&nbsp;&nbsp;
+                        <input type="text" formControlName="seasons">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="qty">Quantity:&nbsp;&nbsp;&nbsp;
+                        <input type="text" formControlName="qty">
+                    </label>
+                </td>
+                <td>
+                    <label for="price">Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" formControlName="price">
+                    </label>
+                </td>
+            </tr>
+            <tr formArrayName="suppliers">
+                <td>
+                    <label for="">Suppliers</label>
+                    <button (click)="addNewSupplier()">Add new supplier</button>
+                </td>
+                <td>
+                    <div *ngFor="let supplier of suppliers.controls; index as i">
+                        <label for="">New supplier:
+                            <input type="text" [formControlName]="i">
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit" [disabled]="!productForm.valid">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

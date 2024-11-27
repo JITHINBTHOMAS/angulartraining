@@ -1,0 +1,62 @@
+<body>
+<div class="card center-div" >
+    <form action="">
+        <!-- <div class="namediv">
+<input type="text" id="nameFeild">
+<button id="addbutton">ADD</button>
+</div> -->
+        <div class="namediv card-body">
+            <input type="text" id="nameFeild" readonly>
+            <button class="btn btn-outline-primary" type="button" id="addbutton" (click)="addDocument()">ADD</button>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            <!-- <button type="button" id="removebutton" (click)="removeDocument()">REMOVE</button> -->
+        </div>
+        <div class="doc card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>DOCUMENT NAME</th>
+                        <th>ID/NUMBER</th>
+                        <th>EXPIRY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <form action=""> -->
+                    <!-- <tr>
+                <th><input [readonly]="isReadonly" type="text"></th>
+                <td><input [readonly]="isReadonly" type="text"></td>
+                <td><input [readonly]="isReadonly" type="date"></td>
+                <td><button [disabled]="disableedit" (click)="makeEditable()" id="editbutton">Edit</button></td>
+                <td><button [hidden]="hiddencofirm" (click)="makeNonEditable()" id="confirmbutton">Confirm</button></td>
+            </tr> -->
+                    <tr *ngIf="DocSize===0">
+                        <th  colspan="6">No Documents Added</th>
+                    </tr>
+                    <tr *ngFor="let document of documents; index as i">
+                        <th>{{i+1}}.</th>
+                        <th><input name="name{{i}}" [readonly]="documents[i].isReadonly" [(ngModel)]="documents[i].name" type="text"></th>
+                        <td><input name="id{{i}}" [readonly]="documents[i].isReadonly" [(ngModel)]="documents[i].id" type="text"></td>
+                        <td><input name="expiry{{i}}" [readonly]="documents[i].isReadonly" [(ngModel)]="documents[i].expiry" type="date"></td>
+                        <td>
+                            <button type="button" class="btn btn-outline-warning" [disabled]="document.disableEdit" (click)="makeEditable(i)"
+                                id="editbutton">Edit</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-success" [hidden]="document.hiddenConfirm" (click)="makeNonEditable(i)"
+                                id="confirmbutton">Confirm</button>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-outline-danger" (click)="removeDocument(i)" id="removebutton">Remove</button>
+                        </td>
+                    </tr>
+                <!-- </form> -->
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>
+</body>

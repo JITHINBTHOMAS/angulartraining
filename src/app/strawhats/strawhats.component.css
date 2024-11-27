@@ -1,0 +1,67 @@
+table {
+    border-collapse: collapse;
+}
+
+body {
+    margin: 0; /* Remove default margin */
+    height: 100vh; /* Set the body height to full viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+input{
+    border-radius: 15px;
+    text-align: center;
+    margin: 3px;
+    padding: 3px;
+}
+
+.namediv {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#nameField {
+    flex: 1;
+    margin-left: 10px;
+}
+.doc{
+    margin: 3px;
+    padding: 3px;
+}
+
+#nameFeild{
+    justify-content: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.center-div {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    height: auto;     
+    width: auto;  
+    background-color: #f0f0f0; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: auto;
+  }
+  
+table table thead tr {
+    background: #ccc;
+    font-weight: bold;
+}
+
+table tr td:first-child {
+    font-weight: bold;
+}
+
+table tr th,td {
+    background-color: transparent;
+    text-align: center;
+}
